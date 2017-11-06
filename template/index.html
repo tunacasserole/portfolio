@@ -1,75 +1,139 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Vuetify Parallax Starter</title>
+  <title>Tuna Town</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
   <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/fa/css/font-awesome.min.css">
 </head>
 <body>
  <div id="app">
    <v-app light>
-    <v-toolbar class="white">
-      <v-toolbar-title v-text="title"></v-toolbar-title>
-    </v-toolbar>
-    <main>
-      <v-content>
-        <section>
+     <v-toolbar class="white">
+       <v-toolbar-title v-text="title"></v-toolbar-title>
+     </v-toolbar>
+     <main>
+       <v-content>
+         <section>
           <v-parallax src="assets/hero.jpeg" height="600">
-            <v-layout
-              column
-              align-center
-              justify-center
-              class="white--text"
-            >
-              <img src="assets/vuetify.png" alt="Vuetify.js" height="200">
-              <h1 class="white--text mb-2 display-1 text-xs-center">Parallax Template</h1>
-              <div class="subheading mb-3 text-xs-center">Powered by Vuetify</div>
-              <v-btn
-                class="blue lighten-2 mt-5"
-                dark
-                large
-                href="/pre-made-themes"
-              >
-                Get Started
+            <v-layout column align-center justify-center class="white--text">
+              <v-avatar class="grey lighten-4" size="100px">
+                <img src="assets/aaron.png">
+              </v-avatar>
+
+              <br>
+              <h1 class="white--text mb-2 display-1 text-xs-center">Resume & Portfolio</h1>
+              <div class="subheading mb-3 text-xs-center">Powered by Blood, Sweat, Tears & Vuetify</div>
+              <v-btn class="purple mt-5" dark href="https://tuna-tracker.firebaseapp.com">
+                TRY SAMPLE APP
               </v-btn>
             </v-layout>
           </v-parallax>
         </section>
+        <br>
+
+        <section >
+          <v-layout v-bind="direction">
+            <v-btn outline color="pink" href="https://stackoverflow.com/users/1626020/aaron-henderson">
+              <v-icon>fa-stack-overflow</v-icon>
+              &nbsp Stack Overflow
+            </v-btn>
+            <v-btn outline color="pink" href="https://linkedin.com/in/aaron-henderson%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85-8541a33/">
+              <v-icon>fa-linkedin</v-icon>
+              &nbsp
+              LinkedIn
+            </v-btn>
+            <v-btn outline color="pink" href="https://github.com/tunacasserole">
+              <v-icon>fa-github</v-icon>
+              &nbsp
+              Github
+            </v-btn>
+          </v-layout>
+        </section>
+
 
         <section>
           <v-layout
-            column
-            wrap
-            class="my-5"
-            align-center
+          column
+          wrap
+          class="ma-3"
+          align-center
           >
-            <v-flex xs12 sm4 class="my-3">
-              <div class="text-xs-center">
-                <h2 class="headline">The best way to start developing</h2>
-                <span class="subheading">
-                  Cras facilisis mi vitae nunc 
-                </span>
-              </div>
-            </v-flex>
+          <div class="text-xs-left pa-3">
+            <h2 class="headline">In a nutshell...</h2>
+            <span class="subheading">
+              <p>
+                For the past 7 years I have been using ruby on rails and javascript to design, develop and deploy rich, web-based applications for medium to large sized companies.  Prior to that I was an Oracle PeopleSoft professional with 15 years of Fortune 500 consulting.
+              </p><p>
+                I have extensive technical expertise and industry knowledge in the following sectors:  Government, Retail, Health & Wellness, Media, Financial Services, Telecommunications, Insurance, Utilities, Logistics, Staffing, and Higher Education Administration.
+              </p><p>
+                I have added significant value to organizations such as Dish Network, United Health Group, the IRS, Wells Fargo, UPS, Hitachi, Boeing, Bank of America, Hawaiian Telcom, Johnson Controls, Waste Management, Montgomery Wards and many more by architecting and delivering creative, elegant and cost-saving solutions in time-sensitive, high-pressure environments.
+              </p><p>
+              </span>
+            </div>
             <v-flex xs12>
               <v-container grid-list-xl>
                 <v-layout row wrap align-center>
+
+                  <v-flex xs12 md4>
+                    <v-card class="elevation-0 transparent">
+                      <v-card-text class="text-xs-center">
+                        <v-icon x-large class="blue--text text--lighten-2">build</v-icon>
+                      </v-card-text>
+                      <v-card-title primary-title class="layout justify-center">
+                        <div class="headline text-xs-center">Server Side</div>
+                      </v-card-title>
+                      <v-card-text>
+
+                        <v-list two-line>
+                          <template v-for="item in backendItems">
+                            <v-subheader v-if="item.header" v-text="item.header"></v-subheader>
+                            <v-list-tile avatar v-else v-bind:key="item.title" @click="">
+                              <v-list-tile-avatar>
+                                <img v-bind:src="item.avatar">
+                              </v-list-tile-avatar>
+                              <v-list-tile-content>
+                                <v-list-tile-title v-html="item.title"></v-list-tile-title>
+                                <!-- <v-list-tile-sub-title v-html="item.subtitle"></v-list-tile-sub-title> -->
+                              </v-list-tile-content>
+                            </v-list-tile>
+                          </template>
+                        </v-list>
+
+                      </v-card-text>
+                    </v-card>
+
+                  </v-flex>
+
                   <v-flex xs12 md4>
                     <v-card class="elevation-0 transparent">
                       <v-card-text class="text-xs-center">
                         <v-icon x-large class="blue--text text--lighten-2">color_lens</v-icon>
                       </v-card-text>
                       <v-card-title primary-title class="layout justify-center">
-                        <div class="headline text-xs-center">Material Design</div>
+                        <div class="headline">UI / UX</div>
                       </v-card-title>
                       <v-card-text>
-                        Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. 
-                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                        Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti. 
+                        <v-list two-line>
+                          <template v-for="item in frontendItems">
+                            <v-subheader v-if="item.header" v-text="item.header"></v-subheader>
+                            <v-divider v-else-if="item.divider" v-bind:inset="item.inset"></v-divider>
+                            <v-list-tile avatar v-else v-bind:key="item.title" @click="">
+                              <v-list-tile-avatar>
+                                <img v-bind:src="item.avatar">
+                              </v-list-tile-avatar>
+                              <v-list-tile-content>
+                                <v-list-tile-title v-html="item.title"></v-list-tile-title>
+                                <!-- <v-list-tile-sub-title v-html="item.subtitle"></v-list-tile-sub-title> -->
+                              </v-list-tile-content>
+                            </v-list-tile>
+                          </template>
+                        </v-list>
                       </v-card-text>
                     </v-card>
+
                   </v-flex>
                   <v-flex xs12 md4>
                     <v-card class="elevation-0 transparent">
@@ -77,29 +141,27 @@
                         <v-icon x-large class="blue--text text--lighten-2">flash_on</v-icon>
                       </v-card-text>
                       <v-card-title primary-title class="layout justify-center">
-                        <div class="headline">Fast development</div>
+                        <div class="headline text-xs-center">Operations</div>
                       </v-card-title>
                       <v-card-text>
-                        Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. 
-                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                        Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti. 
+                        <v-list two-line>
+                          <template v-for="item in opsItems">
+                            <v-subheader v-if="item.header" v-text="item.header"></v-subheader>
+                            <v-divider v-else-if="item.divider" v-bind:inset="item.inset"></v-divider>
+                            <v-list-tile avatar v-else v-bind:key="item.title" @click="">
+                              <v-list-tile-avatar>
+                                <img v-bind:src="item.avatar">
+                              </v-list-tile-avatar>
+                              <v-list-tile-content>
+                                <v-list-tile-title v-html="item.title"></v-list-tile-title>
+                                <!-- <v-list-tile-sub-title v-html="item.subtitle"></v-list-tile-sub-title> -->
+                              </v-list-tile-content>
+                            </v-list-tile>
+                          </template>
+                        </v-list>
                       </v-card-text>
                     </v-card>
-                  </v-flex>
-                  <v-flex xs12 md4>
-                    <v-card class="elevation-0 transparent">
-                      <v-card-text class="text-xs-center">
-                        <v-icon x-large class="blue--text text--lighten-2">build</v-icon>
-                      </v-card-text>
-                      <v-card-title primary-title class="layout justify-center">
-                        <div class="headline text-xs-center">Completely Open Sourced</div>
-                      </v-card-title>
-                      <v-card-text>
-                        Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. 
-                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                        Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti. 
-                      </v-card-text>
-                    </v-card>
+
                   </v-flex>
                 </v-layout>
               </v-container>
@@ -110,15 +172,9 @@
         <section>
           <v-parallax src="assets/section.jpeg" height="380">
             <v-layout column align-center justify-center>
-              <div class="headline white--text mb-3 text-xs-center">Web development has never been easier</div>
-              <em>Kick-start your application today</em>
-              <v-btn
-                class="blue lighten-2 mt-5"
-                dark
-                large
-                href="/pre-made-themes"
-              >
-                Get Started
+              <div class="headline white--text text-xs-center">Getting Interested?</div>
+              <v-btn class="blue lighten-2 mt-5" dark large href="assets/aaron.doc">
+                Download Resume
               </v-btn>
             </v-layout>
           </v-parallax>
@@ -126,56 +182,119 @@
 
         <section>
           <v-container grid-list-xl>
-            <v-layout row wrap justify-center class="my-5">
-              <v-flex xs12 sm4>
-                <v-card class="elevation-0 transparent">
-                  <v-card-title primary-title class="layout justify-center">
-                    <div class="headline">Company info</div>
-                  </v-card-title>
-                  <v-card-text>
-                    Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. 
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                    Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti. 
-                  </v-card-text>
-                </v-card>
-              </v-flex>
-              <v-flex xs12 sm4 offset-sm1>
-                <v-card class="elevation-0 transparent">
-                  <v-card-title primary-title class="layout justify-center">
-                    <div class="headline">Contact us</div>
-                  </v-card-title>
-                  <v-card-text>
-                    Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
-                  </v-card-text>
-                  <v-list class="transparent">
-                    <v-list-tile>
-                      <v-list-tile-action>
-                        <v-icon class="blue--text text--lighten-2">phone</v-icon>
-                      </v-list-tile-action>
-                      <v-list-tile-content>
-                        <v-list-tile-title>777-867-5309</v-list-tile-title>
-                      </v-list-tile-content>
-                    </v-list-tile>
-                    <v-list-tile>
-                      <v-list-tile-action>
-                        <v-icon class="blue--text text--lighten-2">place</v-icon>
-                      </v-list-tile-action>
-                      <v-list-tile-content>
-                        <v-list-tile-title>Chicago, US</v-list-tile-title>
-                      </v-list-tile-content>
-                    </v-list-tile>
-                    <v-list-tile>
-                      <v-list-tile-action>
-                        <v-icon class="blue--text text--lighten-2">email</v-icon>
-                      </v-list-tile-action>
-                      <v-list-tile-content>
-                        <v-list-tile-title>john@vuetifyjs.com</v-list-tile-title>
-                      </v-list-tile-content>
-                    </v-list-tile>
-                  </v-list>
-                </v-card>
-              </v-flex>
+            <v-layout row wrap justify-center class="my-3">
+              <v-card class="elevation-0 transparent">
+                <v-card-title primary-title class="layout justify-center">
+                  <div class="headline">Web Development History</div>
+                </v-card-title>
+                <v-card-text>
+
+                  <h6>Lead Enterprise Architect for SlingTV / Dish Network.  <em style="font-size: 14px"> (March 2016 – November 2017)</em></h6>
+                  Migrated a bloated, “monolithic” rails 3.2 app to a polyglot microservices architecture leveraging Docker, RabbitMQ, Redis, Swagger, JSON Api spec, Devise, and managed through a custom admin tool called Hub that provides a central registry for all of our microservices plus role based_authentication across the entreprise, logging, approvals, workflow, state processing, and other common enterprise wide services while coordinating communication with 20+ 3rd party systems.<br><br>
+                  Created a custom Rabbit interface to manage all of the messaging metadata that allowed real-time configuration of channel, queues, exchanges, consumers, connections, message types to handle spikes in traffic that occasionally reached over 1 million concurrent users.<br><br>
+                  Put a front end on the product catalog that allowed for complex configurations via wizards and leveraged social paradigms including chat, wall, connections, and othres to create collaboration through the tool in a natural and streamlined way.<br><br>
+                  Consolidated a dozen tables across 3 databases to create the first enterprise wide view of partnership that Sling ever had.<br><br>
+                  Created a steady stream of tech debt and refactoring stories and coached and paired with junior devs to get the work done while leveling up skill sets.<br><br>
+                  Create Sling House Rules – a comprehensive, 100-point plan to transform our development and scrum practices with the aim of improving morale and velocity.<br><br>
+                  Rose from dev to lead to architect to head of enterprise architecture within 12 months.<br><br>
+                  Created system architecture diagrams, ERDs, process flows, high fidelity mockups, detailed functional designs and other important design artifacts that had not been leveraged until I got there.
+                  <br><br><br>
+
+                  <h6>UI / UX Designer for iThrive. <em style="font-size: 14px"> (December 2015 – March 2016)</em></h6>
+                  Built a consumer facing, cancer survivorship app in Rails 5 using a Google Material Admin Twitter Bootstrap theme.<br><br>
+                  Created a family of “pretty” consumer-facing pages to serve as tutorials, onboarding, and tour pages.<br><br>
+                  Deployed the app in a Docker container to Digital Ocean and Aptible for hippa compliance.<br><br>
+                  Created custom widgets for a survey, a plan dashboard, a wizard, sliders, tags, and other UI elements that were not well covered by the theme.
+                  <br><br><br>
+
+                  <h6>Senior Full-Stack Developer for United Health Group.<em style="font-size: 14px"> (September 2014 – January 2016)</em></h6>
+                  Built a secure messaging client that allowed communication between doctors and patients, in a branded, single page app (SPA) with Backbone, Marionette, Jade, Haml, ERB, and twitter bootstrap for the frontend with a rails api for the backend.<br><br>
+                  Refactored the capybara feature spec suite to: be super DRY, eliminate fixtures, create and destroy necessary data for each scenario using FactoryGirl plus a custom, factory pattern for api calls that I created, use poltergeist for headless browser testing, run in parallel with parallel tests, use VCR and Mocks to eliminate certain slow and unreliable external dependencies, use perftest and benchmark to identify performance issues, address slow areas with techniques like wrapping in database transactions and find_each, eliminate slow capybara finders and assertions with non-waiting alternatives.<br><br>
+                  Delivered the ability to upload and send multiple attachments in a secure email using a multi-part http request with the remotipart gem.<br><br>
+                  Delivered the same attachment capability over mobile devices using forwardhq for a tunnel to saucelabs and browser stack to automate testing and ensure cross device compatibility.<br><br>
+                  Utilized Capistrano to deploy, Jenkins to run the spec suite, Brakeman and New Relic for health checks and vulnerability notifications, and also migrated infrastructure from Digital Ocean to Open Shift Enterprise.
+                  Handled authorization and permissions with Devise and Can Can.<br><br>
+                  Implemented js plugins: Ckeditor for html editing of emails, Twitter Dropdown, Twitter Typeadhead.js plugin for autocomplete, Bloodhound.js for search matching.<br><br>
+                  Enhanced performance with various caching techniques including Rails.cache, Request Store, api cache, plus sidekick and redis for offloading work.<br><br>
+                  Singlehandedly supported a consumer-facing, diabetes prevention website for 10,000 active users with backbone and rails views for the UI and a rails backend.<br><br>
+                  Built one of the largest private health care exchanges in the country (500k+ users) as a rails restful api.
+                  <br><br><br>
+
+                  <h6>Senior Developer for Parker School Uniforms.<em style="font-size: 14px"> (April 2011 – August 2014)</em></h6>
+                  Developed an entire supply chain management system using ruby on rails with a javascript front-end and dozen of modules including: Adjustments, Bill of Materials, Landed Cost, CRM, Inventory, Purchasing, Projections, Allocations, Receiving, Work Orders, Pick Tickets, Warehouse Management, Physical Inventory, Transfers, Store Replenishment, Supplier Portal, POS support, payment processing, Tax Service integration, Pricing and Promotions, Shipments, support for e-commerce sites.<br><br>
+                  Developed a hotel guest management application using pure rails, swagger, rspec, and guides.<br><br>
+                  Utilized Sencha’s Ext.js javascript framework to create reusable UI classes for menus, toolbars, buttons, list and detail pages, models, views, controllers, etc…<br><br>
+                  Administered unix production environments on Heroku, Digital Ocean and Amazon Web Services.<br><br>
+                  Built over 150 models, with a mysql backend, each accessible with a json, restful webservice.<br><br>
+                  Migrated data from salesforce to a custom CRM that I built, saving my client $10,000+ per month in license fees.<br><br><br>
+
+                  <h6>Senior Developer for Mountain West Insurance.<em style="font-size: 14px"> (Sep. 2010 – Mar 2011)</em></h6>
+                  Developed consumer facing microsites in a .net environment using C#, Sql Server, and Sencha’s Ext.net and eventually migrated entire codebase to a ruby on rails framework.<br><br>
+                  Built a configurable insurance rating engine that allowed customers to generate their own insurance quotes online using a Bootstrap, Rails stack.<br><br>
+                  Utilized formtastic and formbuilder gems to create a configurable, generic form building service that allowed clients to create their own online forms.
+                  <br><br>
+
+                  <br><h6>OTHER CREDITS</h6>
+                  Senior Consultant (US Forest Service, Albuquerque, NM)                 Mar. 2010 – Sept 2010
+                  <br>Senior Consultant (Cooperators, Toronto, Canada)                   Nov. 2009 – Mar. 2010
+                  <br>Senior Consultant (Department of Energy, Portland, OR)            Sept. 2008 – Nov. 2009
+                  <br>Integration Specialist (Knoxville Utilities Board, Knoxville, TN)  Oct. 2007 – Sept. 2009
+                  <br>Senior Consultant (Baltimore Aircoil, Baltimore, MD)                Apr. 2008 – Aug. 2008
+                  <br>Functional Lead (Arizona State University, Tempe, AZ)                Oct. 2007 – Apr. 2008
+                  <br>Senior Consultant (Hawaiian Telcom, Denver, CO)                     Jan. 2006 – Oct. 2007
+                  <br>Functional Lead (BlueCross BlueShield, Chattanooga, TN)              Jan. 2007 – May 2007
+                  <br>Project Manager / Functional Lead (Cybex, Medway, MA)              Nov. 2006 – Jan. 2007
+                  <br>Senior Consultant (Homestore, Westlake Village, CA)                July 2005 – Dec. 2005
+                  <br>Senior Consultant (Johnson Controls Institute, Milwaukee, WI)               Jan. 2005 – July 2005
+                  <br>Senior Consultant (Wells Fargo, San Francisco, CA)                 Nov. 2004 – Jan. 2005
+                  <br>Senior Technical Consultant (Hitachi, Dallas, TX)                   June 2004 – Oct. 2004
+                  <br>Senior Consultant (Boeing, Irvine, CA)                            Jan. 2004 – June 2004
+                  <br>Senior Consultant (IRS, Washington, DC)                         June 2003 – Jan. 2004
+                  <br>Technical Lead (UPS, Dallas, TX)                                May 2002 – May 2003
+                  <br>Technical Lead (Waste Management Inc., Houston, TX)               Aug. 2001 – May 2002
+                  <br>Senior Software Engineer  Inc., Encino, CA)                     Nov. 1999 – Aug. 2001
+                  <br>Senior Consultant (Galahad Software Inc., St. Petersburg, FL)      Sept. 1995 – Oct. 1999
+                  <br>Programmer/Analyst (Intrepid Systems, Inc., Alameda, CA)             June 1993 – Aug. 1995
+
+                  <br><br><b>B.S. in Economics from the University of California, Los Angeles  June 1998</b>
+
+                </v-card-text>
+              </v-card>
             </v-layout>
+
+
+            <br>
+            <v-layout row wrap justify-center>
+              <v-card class="mb-4">
+                <v-list class="transparent">
+                  <v-list-tile>
+                    <v-list-tile-action>
+                      <v-icon class="blue--text text--lighten-2">phone</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                      <v-list-tile-title>678-938-5859</v-list-tile-title>
+                    </v-list-tile-content>
+                  </v-list-tile>
+                  <v-list-tile>
+                    <v-list-tile-action>
+                      <v-icon class="blue--text text--lighten-2">place</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                      <v-list-tile-title>Denver, US</v-list-tile-title>
+                    </v-list-tile-content>
+                  </v-list-tile>
+                  <v-list-tile>
+                    <v-list-tile-action>
+                      <v-icon class="blue--text text--lighten-2">email</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                      <v-list-tile-title>aaron@buildit.io</v-list-tile-title>
+                    </v-list-tile-content>
+                  </v-list-tile>
+                </v-list>
+              </v-card>
+            </v-layout>
+
           </v-container>
         </section>
 
@@ -186,26 +305,77 @@
                 Made with
                 <v-icon class="red--text">favorite</v-icon>
                 by <a class="white--text" href="https://vuetifyjs.com" target="_blank">Vuetify</a>
-                and <a class="white--text" href="https://github.com/vwxyzjn">Costa Huang</a>
+                and <a class="white--text" href="https://github.com/tunacasserole">Aaron Henderson</a>
               </div>
             </v-flex>
           </v-layout>
         </v-footer>
+
       </v-content>
     </main>
   </v-app>
- </div>
- <script src="https://unpkg.com/vue/dist/vue.js"></script>
- <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
- <script>
-   new Vue({
-    el: '#app',
-    data () {
-      return {
-        title: 'Your Logo'
-      }
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBHxZvfOD-Svo_KXWRNOQZKDK94YUgLm-Y",
+    authDomain: "tuna-demo.firebaseapp.com",
+    databaseURL: "https://tuna-demo.firebaseio.com",
+    projectId: "tuna-demo",
+    storageBucket: "tuna-demo.appspot.com",
+    messagingSenderId: "312331611342"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+<script>
+ new Vue({
+  el: '#app',
+  computed: {
+    direction () {
+      const direction = {}
+
+      if (this.$vuetify.breakpoint.mdAndUp) direction.column = false
+
+        return direction
     }
-  })
- </script>
+  },
+  data () {
+    return {
+      title: 'Aaron Henderson (tunacasserole)',
+      backendItems: [
+      { title: 'Ruby + Rails', avatar: 'assets/ruby.jpeg'},
+      { title: 'RabbitMQ', avatar: 'assets/rabbit.png'},
+      { title: 'SOLR', avatar: 'assets/solr.png'},
+      { title: 'SQL / NoSQL', avatar: 'assets/sql.png'},
+      { title: 'Redis + Memcache', avatar: 'assets/redis.png'},
+      { title: 'MEAN', avatar: 'assets/mean.png'},
+      { title: 'Elixir + Phoenix', avatar: 'assets/elixir.png'}
+      ],
+      frontendItems: [
+      { title: 'Html + CSS', avatar: 'assets/html.png'},
+      { title: 'Javascript + Jquery', avatar: 'assets/javascript.jpeg'},
+      { title: 'Bootstrap + Material', avatar: 'assets/material.png'},
+      { title: 'Vue + Vuetify', avatar: 'assets/vuetify-logo.png'},
+      { title: 'React', avatar: 'assets/react.svg'},
+      { title: 'Backbone + Marionette', avatar: 'assets/backbone.png'},
+      { title: 'Sencha', avatar: 'assets/sencha.jpeg'}
+      ],
+      opsItems: [
+      { title: 'Firebase', avatar: 'assets/firebase.png'},
+      { title: 'Heroku', avatar: 'assets/heroku.png'},
+      { title: 'Gitlab', avatar: 'assets/gitlab.png'},
+      { title: 'Amazon Web Services', avatar: 'assets/aws.png'},
+      { title: 'Digital Ocean', avatar: 'assets/do.png'},
+      { title: 'Docker', avatar: 'assets/docker.png'},
+      { title: 'Jenkins', avatar: 'assets/jenkins.jpeg'}
+      ]
+    }
+  }
+})
+</script>
 </body>
 </html>
