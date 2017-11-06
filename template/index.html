@@ -34,25 +34,32 @@
         </section>
         <br>
 
-        <section >
-          <v-layout v-bind="direction">
-            <v-btn outline color="pink" href="https://stackoverflow.com/users/1626020/aaron-henderson">
-              <v-icon>fa-stack-overflow</v-icon>
-              &nbsp Stack Overflow
-            </v-btn>
-            <v-btn outline color="pink" href="https://linkedin.com/in/aaron-henderson%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85-8541a33/">
-              <v-icon>fa-linkedin</v-icon>
-              &nbsp
-              LinkedIn
-            </v-btn>
-            <v-btn outline color="pink" href="https://github.com/tunacasserole">
-              <v-icon>fa-github</v-icon>
-              &nbsp
-              Github
-            </v-btn>
-          </v-layout>
-        </section>
-
+        <div class="text-sm-right text-xs-center">
+          <v-container >
+            <v-layout v-bind="direction">
+              <v-flex xs12 >
+                <v-btn outline color="pink" href="https://stackoverflow.com/users/1626020/aaron-henderson">
+                  <v-icon>fa-stack-overflow</v-icon>
+                  &nbsp Stack Overflow
+                </v-btn>
+              </v-flex>
+              <v-flex xs12 >
+                <v-btn outline color="pink" href="https://linkedin.com/in/aaron-henderson%E2%98%85%E2%98%85%E2%98%85%E2%98%85%E2%98%85-8541a33/">
+                  <v-icon>fa-linkedin</v-icon>
+                  &nbsp
+                  LinkedIn
+                </v-btn>
+              </v-flex>
+              <v-flex xs12 >
+                <v-btn outline color="pink" href="https://github.com/tunacasserole">
+                  <v-icon>fa-github</v-icon>
+                  &nbsp
+                  Github
+                </v-btn>
+              </v-flex>
+            </v-layout>
+          </v-container>
+        </div>
 
         <section>
           <v-layout
@@ -338,7 +345,7 @@
     direction () {
       const direction = {}
 
-      if (this.$vuetify.breakpoint.mdAndUp) direction.column = false
+      if (this.$vuetify.breakpoint.xs) direction.column = true
 
         return direction
     }
@@ -367,11 +374,12 @@
       opsItems: [
       { title: 'Firebase', avatar: 'assets/firebase.png'},
       { title: 'Heroku', avatar: 'assets/heroku.png'},
-      { title: 'Gitlab', avatar: 'assets/gitlab.png'},
       { title: 'Amazon Web Services', avatar: 'assets/aws.png'},
       { title: 'Digital Ocean', avatar: 'assets/do.png'},
       { title: 'Docker', avatar: 'assets/docker.png'},
       { title: 'Jenkins', avatar: 'assets/jenkins.jpeg'}
+      { title: 'Gitlab', avatar: 'assets/gitlab.png'},
+      { title: 'Electron', avatar: 'assets/electron.png'},
       ]
     }
   }
